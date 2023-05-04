@@ -20,8 +20,6 @@ from telethon.errors import (
     SessionPasswordNeededError,
     PasswordHashInvalidError
 )
-import config
-
 
 
 @Client.on_message(filters.private & ~filters.forwarded & filters.command('generate'))
@@ -46,7 +44,7 @@ async def generate_session(bot, msg, telethon=False):
         api_hash = config.API_HASH
     else:
         try:
-        api_id = int(api_id_msg.text)
+            api_id = int(api_id_msg.text)
     except ValueError:
         await api_id_msg.reply('Not a valid API_ID (which must be an integer). Please start generating session again.', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
