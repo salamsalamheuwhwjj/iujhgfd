@@ -20,6 +20,7 @@ from telethon.errors import (
     SessionPasswordNeededError,
     PasswordHashInvalidError
 )
+import config
 
 
 @Client.on_message(filters.private & ~filters.forwarded & filters.command('generate'))
